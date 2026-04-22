@@ -702,6 +702,40 @@ code {
   gap: 1rem;
 }
 
+.contact-brand-card {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.4fr);
+  gap: 1.25rem;
+  padding: 1.3rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(202, 188, 164, 0.42);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-brand-mark {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.85rem;
+  padding-right: 0.35rem;
+}
+
+.contact-brand-mark img {
+  width: min(100%, 160px);
+  height: auto;
+}
+
+.contact-brand-copy h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+.contact-brand-copy p {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
 .contact-form,
 .field-row {
   display: grid;
@@ -751,12 +785,34 @@ code {
   background: rgba(255, 255, 255, 0.98);
 }
 
-.info-grid {
+.contact-details-grid {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.info-card {
-  padding: 1.2rem;
+.detail-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(251, 248, 243, 0.92);
+  border: 1px solid rgba(202, 188, 164, 0.35);
+}
+
+.detail-item .info-icon {
+  margin-bottom: 0;
+}
+
+.detail-item h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.detail-item p {
+  margin: 0;
 }
 
 .info-icon {
@@ -767,13 +823,13 @@ code {
   background: rgba(241, 149, 45, 0.12);
 }
 
-.info-card a {
+.detail-item a {
   color: var(--foreground);
   font-weight: 700;
 }
 
-.info-card a:hover,
-.info-card a:focus-visible {
+.detail-item a:hover,
+.detail-item a:focus-visible {
   color: var(--primary);
 }
 
@@ -851,8 +907,12 @@ code {
   }
 
   .mini-grid,
-  .info-grid {
+  .contact-details-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-brand-card {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -908,9 +968,19 @@ code {
   .hero-grid,
   .mini-grid,
   .field-row,
-  .info-grid,
+  .contact-details-grid,
   .info-band {
     grid-template-columns: 1fr;
+  }
+
+  .contact-brand-mark {
+    justify-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .detail-item {
+    padding: 0.9rem;
   }
 
   .hero-grid {

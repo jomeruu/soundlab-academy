@@ -13,7 +13,7 @@
   --piano: hsl(145 60% 42%);
   --shadow: 0 22px 60px rgba(41, 36, 28, 0.08);
   --radius: 20px;
-  --header-height: 84px;
+  --header-height: 68px;
 }
 
 * {
@@ -76,7 +76,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .brand {
@@ -87,36 +87,44 @@ code {
 }
 
 .brand img {
-  width: 54px;
-  height: 54px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
 .brand span {
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   letter-spacing: 0.01em;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
-.site-nav a {
+.site-nav > a:not(.nav-cta) {
   color: var(--muted-foreground);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav > a:not(.nav-cta):hover,
+.site-nav > a:not(.nav-cta):focus-visible {
   color: var(--primary);
 }
 
 .nav-cta {
-  margin-left: 0.4rem;
+  margin-left: 0.15rem;
+  background: hsl(220 20% 15%);
+  box-shadow: 0 10px 24px rgba(26, 29, 46, 0.18);
+}
+
+.site-nav > .nav-cta,
+.site-nav > .nav-cta:hover,
+.site-nav > .nav-cta:focus-visible {
+  color: #fff;
 }
 
 .menu-toggle {
@@ -236,12 +244,17 @@ code {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 800;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .button:hover,
 .button:focus-visible {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .button-primary {
@@ -250,21 +263,49 @@ code {
   box-shadow: 0 16px 34px rgba(227, 131, 21, 0.24);
 }
 
+.button-primary:hover,
+.button-primary:focus-visible {
+  background: hsl(25 90% 50%);
+  box-shadow: 0 18px 38px rgba(227, 131, 21, 0.3);
+}
+
+.site-nav > .nav-cta.button-primary:hover,
+.site-nav > .nav-cta.button-primary:focus-visible {
+  background: hsl(220 20% 12%);
+  box-shadow: 0 12px 28px rgba(26, 29, 46, 0.22);
+}
+
 .button-secondary {
   background: rgba(255, 255, 255, 0.7);
   color: var(--foreground);
   border-color: var(--border);
 }
 
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(171, 156, 132, 0.65);
+  box-shadow: 0 14px 28px rgba(41, 36, 28, 0.08);
+}
+
 .button-ghost {
-  background: transparent;
-  color: inherit;
-  border-color: currentColor;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--accent-color, var(--primary));
+  border-color: color-mix(in srgb, var(--accent-color, var(--primary)) 24%, white);
+}
+
+.button-ghost:hover,
+.button-ghost:focus-visible {
+  background: var(--accent-color, var(--primary));
+  border-color: var(--accent-color, var(--primary));
+  color: white;
+  box-shadow: 0 16px 30px color-mix(in srgb, var(--accent-color, var(--primary)) 28%, transparent);
 }
 
 .button-small {
-  min-height: 42px;
-  padding: 0.7rem 1rem;
+  min-height: 36px;
+  padding: 0.58rem 0.9rem;
+  font-size: 0.88rem;
 }
 
 .hero-grid,
@@ -299,6 +340,34 @@ code {
 .feature-card {
   padding: 1.25rem;
   text-align: left;
+}
+
+.card-icon,
+.lesson-icon,
+.mini-icon,
+.band-icon,
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color, var(--primary));
+}
+
+.card-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent-color, var(--primary)) 12%, white);
+}
+
+.card-icon svg,
+.lesson-icon svg,
+.mini-icon svg,
+.band-icon svg,
+.info-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .feature-card h2,
@@ -436,6 +505,14 @@ code {
   padding: 1rem;
 }
 
+.mini-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-bottom: 0.7rem;
+  border-radius: 999px;
+  background: rgba(241, 149, 45, 0.12);
+}
+
 .mini-card strong {
   display: block;
   margin-bottom: 0.2rem;
@@ -449,6 +526,14 @@ code {
 .lesson-card,
 .contact-card {
   padding: 1.4rem;
+}
+
+.lesson-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.9rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--accent-color, var(--primary)) 14%, white);
 }
 
 .lesson-card ul {
@@ -491,6 +576,14 @@ code {
   gap: 0.2rem;
   justify-items: center;
   text-align: center;
+}
+
+.band-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .info-band span {
@@ -597,9 +690,26 @@ code {
   padding: 1.2rem;
 }
 
+.info-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  background: rgba(241, 149, 45, 0.12);
+}
+
 .info-card a {
   color: var(--foreground);
   font-weight: 700;
+}
+
+.info-card a:hover,
+.info-card a:focus-visible {
+  color: var(--primary);
+}
+
+.email-text {
+  word-break: break-word;
 }
 
 .map-frame {
@@ -616,12 +726,13 @@ code {
 .site-footer {
   background: hsl(220 20% 15%);
   color: hsl(45 30% 95%);
-  padding: 2.3rem 0;
+  padding: 1.35rem 0;
 }
 
 .footer-inner {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
+  gap: 0.8rem;
 }
 
 .footer-brand,
@@ -630,7 +741,7 @@ code {
 }
 
 .footer-brand {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 
@@ -639,8 +750,13 @@ code {
   color: rgba(245, 238, 228, 0.72);
 }
 
+.footer-tagline {
+  font-size: 0.9rem;
+}
+
 .footer-meta {
   text-align: right;
+  font-size: 0.9rem;
 }
 
 .js .reveal {
@@ -696,6 +812,10 @@ code {
 
   .nav-cta {
     margin-left: 0;
+  }
+
+  .site-nav > .nav-cta {
+    justify-content: center;
   }
 
   .hero {

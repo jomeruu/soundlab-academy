@@ -726,40 +726,6 @@ code {
   gap: 1rem;
 }
 
-.contact-brand-card {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.4fr);
-  gap: 1.25rem;
-  padding: 1.3rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(202, 188, 164, 0.42);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.contact-brand-mark {
-  display: grid;
-  align-content: start;
-  justify-items: start;
-  gap: 0.85rem;
-  padding-right: 0.35rem;
-}
-
-.contact-brand-mark img {
-  width: min(100%, 160px);
-  height: auto;
-}
-
-.contact-brand-copy h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.2rem;
-}
-
-.contact-brand-copy p {
-  margin: 0;
-  color: var(--muted-foreground);
-}
-
 .contact-form,
 .field-row {
   display: grid;
@@ -935,9 +901,6 @@ code {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .contact-brand-card {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 780px) {
@@ -1066,12 +1029,6 @@ code {
     margin-top: 2rem;
   }
 
-  .contact-brand-mark {
-    justify-items: center;
-    text-align: center;
-    padding-right: 0;
-  }
-
   .feature-card {
     padding: 1rem;
     border-radius: 16px;
@@ -1187,18 +1144,6 @@ code {
 
   .contact-card {
     padding: 1.35rem;
-  }
-
-  .contact-brand-card {
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    gap: 0;
-  }
-
-  .contact-brand-mark {
-    display: none;
   }
 
   .detail-item {

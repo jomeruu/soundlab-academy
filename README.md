@@ -23,6 +23,7 @@ GitHub Pages can only host static files, so it cannot send email by itself. The 
 - Form endpoint: `https://formsubmit.co/b262d88b08aaa1a6de5e002c1f0a85ea`
 - The form has been activated for `soundlabacademy.tech@gmail.com`.
 - Website inquiries are forwarded to that inbox.
+- After a successful submission, FormSubmit redirects back with `?sent=1` and the site opens a thank-you modal.
 
 The WhatsApp button stays client-side and opens a prefilled WhatsApp message.
 

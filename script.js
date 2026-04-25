@@ -5,6 +5,7 @@ const siteNav = document.querySelector(".site-nav");
 const navLinks = document.querySelectorAll(".site-nav a");
 const contactForm = document.getElementById("contact-form");
 const whatsappButton = document.getElementById("whatsapp-button");
+const thankYouModal = document.getElementById("thank-you-modal");
 const year = document.getElementById("year");
 const revealItems = document.querySelectorAll(".reveal");
 
@@ -60,6 +61,41 @@ if (whatsappButton) {
     const whatsappUrl = `https://wa.me/85295491119?text=${encodeURIComponent(buildMessage())}`;
     window.open(whatsappUrl, "_blank", "noopener");
   });
+}
+
+if (thankYouModal) {
+  const closeModalButtons = thankYouModal.querySelectorAll("[data-modal-close]");
+  const closeModal = () => {
+    thankYouModal.hidden = true;
+    document.body.classList.remove("modal-open");
+
+    const url = new URL(window.location.href);
+    if (url.searchParams.has("sent")) {
+      url.searchParams.delete("sent");
+      const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+      window.history.replaceState({}, "", nextUrl);
+    }
+  };
+
+  const openModal = () => {
+    thankYouModal.hidden = false;
+    document.body.classList.add("modal-open");
+    thankYouModal.querySelector(".thank-you-modal__close")?.focus();
+  };
+
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !thankYouModal.hidden) {
+      closeModal();
+    }
+  });
+
+  if (new URLSearchParams(window.location.search).get("sent") === "1") {
+    openModal();
+  }
 }
 
 if ("IntersectionObserver" in window) {

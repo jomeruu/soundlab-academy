@@ -20,9 +20,9 @@ Open `index.html` directly in a browser, or serve the folder with any static ser
 
 GitHub Pages can only host static files, so it cannot send email by itself. The contact form uses FormSubmit:
 
-- Form endpoint: `https://formsubmit.co/soundlabacademy.tech@gmail.com`
-- First submission will send an activation email to `soundlabacademy.tech@gmail.com`.
-- Open that activation email and confirm it once. After that, website inquiries are forwarded to the inbox.
+- Form endpoint: `https://formsubmit.co/b262d88b08aaa1a6de5e002c1f0a85ea`
+- The form has been activated for `soundlabacademy.tech@gmail.com`.
+- Website inquiries are forwarded to that inbox.
 
 The WhatsApp button stays client-side and opens a prefilled WhatsApp message.
 
